@@ -1,0 +1,198 @@
+/**
+ * CustomSelect Component Styles
+ * Custom dropdown with full styling
+ */
+
+/* ==================== Wrapper ==================== */
+
+.custom-select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+/* ==================== Container ==================== */
+
+.custom-select-container {
+  position: relative;
+  width: 100%;
+}
+
+/* ==================== Label ==================== */
+
+.custom-select-label {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%; /* Centrado cuando está vacío */
+  transform: translateY(-50%);
+  font-size: 0.875rem; /* 14px - normal cuando vacío */
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-muted);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+/* Label always on top for custom select (always has value) */
+.custom-select-trigger ~ .custom-select-label {
+  top: 0.25rem;
+  transform: translateY(0);
+  font-size: 0.6875rem;
+}
+
+/* ==================== Trigger (dropdown button) ==================== */
+
+.custom-select-trigger {
+  width: 100%;
+  height: 3rem; /* 48px */
+  padding: 1.25rem 2.5rem 0.375rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* Typography */
+  font-size: 0.875rem;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  font-weight: 400;
+  text-align: left;
+  
+  /* Visual */
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  
+  &:hover {
+    border-color: #9e9e9e;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: #757575;
+  }
+}
+
+.custom-select-trigger--open {
+  border-color: #757575;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* ==================== Value ==================== */
+
+.custom-select-value {
+  flex: 1;
+  padding-top: 0.375rem;
+}
+
+/* ==================== Arrow ==================== */
+
+.custom-select-arrow {
+  position: absolute;
+  right: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #757575;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.custom-select-arrow--open {
+  transform: translateY(-50%) rotate(180deg);
+  color: #424242;
+}
+
+/* ==================== Dropdown ==================== */
+
+.custom-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #757575;
+  border-top: none;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== Option ==================== */
+
+.custom-select-option {
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  
+  &:hover:not(.custom-select-option--disabled) {
+    background-color: #f5f5f5;
+  }
+  
+  &:active:not(.custom-select-option--disabled) {
+    background-color: #eeeeee;
+  }
+}
+
+.custom-select-option--selected {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  font-weight: 500;
+  
+  &:hover {
+    background-color: #bbdefb;
+  }
+}
+
+.custom-select-option--disabled {
+  color: #bdbdbd;
+  cursor: not-allowed;
+  background-color: #fafafa;
+  
+  &:hover {
+    background-color: #fafafa;
+  }
+}
+
+/* ==================== Error ==================== */
+
+.custom-select-error {
+  font-size: 0.75rem;
+  color: #ffffff;
+  background-color: #c92a2a;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0.375rem 0.75rem;
+  display: block;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  font-weight: 400;
+  margin-top: -1px;
+}
+
+/* ==================== Scrollbar ==================== */
+
+.custom-select-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-select-dropdown::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+.custom-select-dropdown::-webkit-scrollbar-thumb {
+  background: #bdbdbd;
+  border-radius: 4px;
+}
+
+.custom-select-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #9e9e9e;
+}
+
