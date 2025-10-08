@@ -1,0 +1,188 @@
+/**
+ * Button Component Styles
+ * 
+ * Architecture: BEM (Block Element Modifier)
+ * 
+ * Why BEM:
+ * - Clear naming conventions
+ * - Prevents name collisions
+ * - Self-documented (see HTML and understand structure)
+ * - Easy to search in codebase
+ * 
+ * Structure:
+ * .button           - Block (base component)
+ * .button__spinner  - Element (component part)
+ * .button--primary  - Modifier (component variant)
+ */
+
+/* ==================== Block ==================== */
+
+.button {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  
+  /* Typography */
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  
+  /* Visual */
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  
+  /* Interaction */
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-base);
+  
+  /* Reset */
+  text-decoration: none;
+  
+  /* Focus */
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+  }
+  
+  /* Disabled */
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+/* ==================== Size Modifiers ==================== */
+
+.button--sm {
+  height: 2.25rem; /* 36px */
+  padding: 0 var(--spacing-3);
+  font-size: var(--font-size-sm);
+}
+
+.button--md {
+  height: 2.75rem; /* 44px */
+  padding: 0 var(--spacing-6);
+  font-size: var(--font-size-base);
+}
+
+.button--lg {
+  height: 3rem; /* 48px según Figma */
+  padding: 0 var(--spacing-6);
+  font-size: 0.875rem; /* Texto más pequeño: 14px */
+}
+
+/* ==================== Variant Modifiers ==================== */
+
+.button--primary {
+  background-color: var(--color-primary-600);
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-700);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+.button--secondary {
+  background-color: var(--color-gray-100);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--color-gray-200);
+    border-color: var(--color-gray-400);
+  }
+}
+
+.button--ghost {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--color-gray-100);
+  }
+}
+
+.button--destructive {
+  background-color: var(--color-error);
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background-color: #d32f2f;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* ==================== Compound Variants ==================== */
+
+.button--primary-lg {
+  font-weight: var(--font-weight-medium); /* Texto más delgado */
+  letter-spacing: 0.025em;
+}
+
+/* ==================== Layout Modifiers ==================== */
+
+.button--full-width {
+  width: 100%;
+}
+
+/* ==================== Elements ==================== */
+
+.button__content {
+  display: inline-flex;
+  align-items: center;
+}
+
+.button__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.button__icon--left {
+  margin-right: var(--spacing-1);
+  margin-left: calc(var(--spacing-1) * -1);
+}
+
+.button__icon--right {
+  margin-left: var(--spacing-1);
+  margin-right: calc(var(--spacing-1) * -1);
+}
+
+.button__spinner {
+  width: 1rem;
+  height: 1rem;
+  animation: spin 1s linear infinite;
+  flex-shrink: 0;
+}
+
+.button__spinner-track {
+  opacity: 0.25;
+}
+
+.button__spinner-path {
+  opacity: 0.75;
+}
+
+/* ==================== Responsive ==================== */
+
+@media (max-width: 640px) {
+  .button--lg {
+    height: 2.75rem;
+    padding: 0 var(--spacing-6);
+    font-size: var(--font-size-base);
+  }
+}
+

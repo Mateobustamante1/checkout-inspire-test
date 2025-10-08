@@ -1,0 +1,158 @@
+/**
+ * Select Component Styles
+ * Floating Label Pattern
+ */
+
+/* ==================== Wrapper ==================== */
+
+.select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+/* ==================== Container ==================== */
+
+.select-container {
+  position: relative;
+  width: 100%;
+}
+
+/* ==================== Label ==================== */
+
+.select-label {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-muted);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+/* Label always on top for select (always has value) */
+.select ~ .select-label {
+  top: 0.25rem;
+  transform: translateY(0);
+  font-size: 0.6875rem;
+}
+
+/* ==================== Select Base ==================== */
+
+.select {
+  /* Layout */
+  width: 100%;
+  height: 3rem;
+  padding: 1.25rem 2.5rem 0.375rem 0.75rem;
+  
+  /* Typography */
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  font-weight: 400;
+  
+  /* Visual */
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  /* Focus */
+  &:focus {
+    outline: none;
+    border-color: #9e9e9e; /* darker gray on focus */
+  }
+  
+  /* Disabled */
+  &:disabled {
+    background-color: var(--color-gray-100);
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+/* Select con error */
+.select--error {
+  border-color: var(--color-error);
+  border-bottom-width: 0;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  
+  &:focus {
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+  }
+}
+
+/* ==================== Arrow Icon ==================== */
+
+.select__arrow {
+  position: absolute;
+  right: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #757575;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.select:focus ~ .select__arrow {
+  color: #424242;
+}
+
+/* ==================== Success Icon ==================== */
+
+.select__icon-wrapper {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.select--has-icon {
+  padding-right: 3.5rem;
+}
+
+/* ==================== Error Text ==================== */
+
+.select-error-text {
+  font-size: 0.75rem;
+  color: #ffffff;
+  background-color: #c92a2a;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0.375rem 0.75rem;
+  display: block;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  font-weight: 400;
+}
+
+/* ==================== Options ==================== */
+
+.select option {
+  padding: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.select option:disabled {
+  color: #9e9e9e;
+}
+

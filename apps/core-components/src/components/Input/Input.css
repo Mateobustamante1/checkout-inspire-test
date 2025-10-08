@@ -1,0 +1,202 @@
+/**
+ * Input Component Styles
+ * BEM Methodology
+ */
+
+/* ==================== Wrapper ==================== */
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+/* ==================== Label ==================== */
+
+.input-label {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%; /* Centrado cuando está vacío */
+  transform: translateY(-50%);
+  font-size: 0.875rem; /* 14px - normal cuando vacío */
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-muted);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+/* Label cuando hay valor o focus */
+.input:focus ~ .input-label,
+.input:not(:placeholder-shown) ~ .input-label {
+  top: 0.25rem;
+  transform: translateY(0);
+  font-size: 0.6875rem; /* 11px - pequeño */
+}
+
+/* ==================== Input Container ==================== */
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+/* ==================== Input Base ==================== */
+
+.input {
+  /* Layout */
+  width: 100%;
+  height: 3rem; /* 48px - más alto para label + valor */
+  padding: 1.25rem 0.75rem 0.375rem 0.75rem; /* Top padding para el label */
+  
+  /* Typography */
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  
+  /* Visual */
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  
+  /* Interaction */
+  transition: all var(--transition-base);
+  
+  /* Placeholder */
+  &::placeholder {
+    color: transparent;
+  }
+  
+  /* Focus */
+  &:focus {
+    outline: none;
+    border-color: var(--color-border);
+    box-shadow: none;
+  }
+  
+  /* Disabled */
+  &:disabled {
+    background-color: var(--color-gray-100);
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+  }
+}
+
+/* Input with error: no bottom border-radius */
+.input--error {
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+/* ==================== Input with Icon ==================== */
+
+.input--has-icon {
+  padding-right: 2.5rem;
+}
+
+/* ==================== State Modifiers ==================== */
+
+.input--error {
+  border-color: var(--color-error);
+  border-bottom-width: 0;
+  
+  &:focus {
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+  }
+}
+
+.input--success {
+  border-color: var(--color-success);
+  
+  &:focus {
+    border-color: var(--color-success);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+  }
+}
+
+/* ==================== Icon ==================== */
+
+.input__icon-wrapper {
+  position: absolute;
+  right: var(--spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Allow clicks on buttons and links inside wrapper */
+.input__icon-wrapper button,
+.input__icon-wrapper a {
+  pointer-events: auto;
+}
+
+.input__icon {
+  flex-shrink: 0;
+}
+
+.input__icon--success {
+  color: var(--color-success);
+}
+
+/* ==================== Helper/Error/Success Text ==================== */
+
+.input-helper-text {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin: 0;
+  margin-top: 0.25rem;
+}
+
+.input-error-text {
+  font-size: 0.75rem;
+  color: #ffffff;
+  background-color: #c92a2a;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0.375rem 0.75rem;
+  display: block;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  font-weight: 400;
+}
+
+.input-success-text {
+  font-size: var(--font-size-xs);
+  color: var(--color-success);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ==================== Input Types ==================== */
+
+/* Number inputs - hide spinners */
+input[type='number'].input::-webkit-outer-spin-button,
+input[type='number'].input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'].input {
+  -moz-appearance: textfield;
+}
+
+/* Search input */
+input[type='search'].input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ==================== Responsive ==================== */
+
+@media (max-width: 640px) {
+  .input {
+    font-size: var(--font-size-base);
+    /* iOS requires min 16px to avoid zoom */
+  }
+}
+
