@@ -1,6 +1,6 @@
 [build]
   # Build command from monorepo root
-  command = "pnpm install && pnpm run build --filter=checkout"
+  command = "pnpm install && pnpm run build --filter=@inspire/checkout"
   
   # Output directory (relative to repo root)
   publish = "apps/checkout/dist"
