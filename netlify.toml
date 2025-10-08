@@ -1,0 +1,29 @@
+[build]
+  # Build command from monorepo root
+  command = "pnpm install && pnpm run build --filter=@inspire/checkout"
+  
+  # Output directory (relative to repo root)
+  publish = "apps/checkout/dist"
+  
+  # Base directory (optional, but good practice)
+  base = "/"
+
+[build.environment]
+  # Node version
+  NODE_VERSION = "20"
+  
+  # Enable pnpm
+  NPM_FLAGS = "--version"
+
+# SPA fallback for React Router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Optional: Optimize caching
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+

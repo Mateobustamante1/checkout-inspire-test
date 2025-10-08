@@ -1,0 +1,113 @@
+{
+  "checkout": {
+    "breadcrumb": {
+      "delivery": "Entrega",
+      "payment": "Pagamento"
+    },
+    "sections": {
+      "contact": "Dados de contato",
+      "delivery": "Entrega",
+      "fiscalData": "Dados para nota fiscal",
+      "payerData": "Dados de quem vai fazer o pagamento"
+    },
+    "fields": {
+      "email": "E-mail",
+      "newsletter": "Receber ofertas e novidades por e-mail",
+      "country": "País",
+      "cpfCnpj": "CPF ou CNPJ",
+      "firstName": "Nome",
+      "lastName": "Sobrenome",
+      "phone": "Telefone com DDD",
+      "cep": "CEP",
+      "cepHelper": "Não sei meu CEP",
+      "number": "Número",
+      "complement": "Complemento (opcional)",
+      "pickupPerson": "Outra pessoa buscará pelo pedido"
+    },
+    "delivery": {
+      "free": "Grátis",
+      "moreOptions": "Mais opções",
+      "lessOptions": "Menos opções",
+      "loading": "Carregando opções de entrega...",
+      "error": "Erro ao carregar opções de entrega"
+    },
+    "address": {
+      "change": "Alterar",
+      "cepPrefix": "CEP"
+    },
+    "buttons": {
+      "submit": "CONTINUAR PARA PAGAMENTO",
+      "processing": "PROCESSANDO..."
+    },
+    "messages": {
+      "successPrefix": "Pedido realizado com sucesso! ID:",
+      "requiredField": "Este campo deve ser preenchido"
+    }
+  },
+  "orderSummary": {
+    "title": "Resumo do Pedido",
+    "subtotal": "Subtotal",
+    "shipping": "Frete",
+    "discount": "Desconto",
+    "total": "Total",
+    "addCoupon": "Adicionar cupom de desconto",
+    "removeCoupon": "Remover",
+    "appliedCoupon": "Cupom aplicado"
+  },
+  "cepModal": {
+    "title": "Buscar CEP",
+    "searchPlaceholder": "Digite o endereço, bairro ou cidade",
+    "statePlaceholder": "Estado",
+    "cityPlaceholder": "Cidade",
+    "noResults": "Nenhum resultado encontrado",
+    "close": "Fechar"
+  },
+  "couponModal": {
+    "title": "Adicionar Cupom de Desconto",
+    "inputLabel": "Código do cupom",
+    "apply": "Aplicar Cupom",
+    "availableCoupons": "Cupons disponíveis",
+    "minAmount": "Mínimo de",
+    "errors": {
+      "invalid": "Cupom inválido ou expirado.",
+      "minAmountPrefix": "O cupom",
+      "minAmountSuffix": "requer um total de pelo menos"
+    }
+  },
+  "validation": {
+    "email": {
+      "required": "Este campo deve ser preenchido",
+      "invalid": "E-mail inválido"
+    },
+    "cpf": {
+      "required": "Este campo deve ser preenchido",
+      "invalid": "CPF inválido"
+    },
+    "phone": {
+      "required": "Este campo deve ser preenchido",
+      "invalid": "Telefone inválido"
+    },
+    "cep": {
+      "required": "Este campo deve ser preenchido",
+      "invalid": "CEP não encontrado"
+    },
+    "name": {
+      "required": "Este campo deve ser preenchido"
+    },
+    "delivery": {
+      "required": "Selecione uma opção de entrega"
+    }
+  },
+  "countries": {
+    "BR": "Brasil",
+    "AR": "Argentina",
+    "CL": "Chile",
+    "UY": "Uruguay",
+    "PY": "Paraguay",
+    "CO": "Colombia"
+  },
+  "header": {
+    "securePurchase": "COMPRA SEGURA",
+    "protected": "100% PROTEGIDO"
+  }
+}
